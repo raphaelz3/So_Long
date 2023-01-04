@@ -6,7 +6,7 @@
 /*   By:  rapgonca < rapgonca@student.42sp.org.b    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:43:13 by  rapgonca         #+#    #+#             */
-/*   Updated: 2023/01/02 15:49:19 by  rapgonca        ###   ########.fr       */
+/*   Updated: 2023/01/04 14:20:08 by  rapgonca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,16 @@ int	recreat_map(t_mlx *lib)
 
 int	close_win(t_mlx *lib)
 {
+	mlx_loop_end(lib->mlx);
 	mlx_clear_window(lib->mlx, lib->win);
 	mlx_destroy_window(lib->mlx, lib->win);
+	mlx_destroy_image(lib->mlx, lib->floor.img);
+	mlx_destroy_image(lib->mlx, lib->wall.img);
+	mlx_destroy_image(lib->mlx, lib->player.img);
+	mlx_destroy_image(lib->mlx, lib->exit.img);
+	mlx_destroy_image(lib->mlx, lib->colect.img);
 	free(lib->tab.tab);
 	free(lib->mlx);
-	mlx_loop_end(lib->mlx);
 	ft_printf("steps: %d\n", lib->tab.steps);
 	exit(0);
 }

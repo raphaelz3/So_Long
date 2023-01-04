@@ -6,7 +6,7 @@
 /*   By:  rapgonca < rapgonca@student.42sp.org.b    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:37:20 by  rapgonca         #+#    #+#             */
-/*   Updated: 2023/01/02 15:48:50 by  rapgonca        ###   ########.fr       */
+/*   Updated: 2023/01/04 15:01:03 by  rapgonca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ void	set_image_mov(int key, t_mlx *lib)
 
 	if (key == 'a')
 		lib->player.img = mlx_xpm_file_to_image(lib->mlx, \
-		"img/stand-left-lt.xpm", &x, &y);
+		"textures/stand-left-lt.xpm", &x, &y);
 	else if (key == 'd')
 		lib->player.img = mlx_xpm_file_to_image(lib->mlx, \
-		"img/stand-right-lt.xpm", &x, &y);
+		"textures/stand-right-lt.xpm", &x, &y);
 	else if (key == 'w')
 		lib->player.img = mlx_xpm_file_to_image(lib->mlx, \
-		"img/player_up_0.xpm", &x, &y);
+		"textures/player_up_0.xpm", &x, &y);
 	else if (key == 's')
 		lib->player.img = mlx_xpm_file_to_image(lib->mlx, \
-		"img/down-1.xpm", &x, &y);
+		"textures/down-1.xpm", &x, &y);
 }
 
 void	recreat_img(int x, int y, char chr, t_mlx *lib)

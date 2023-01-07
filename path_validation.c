@@ -82,14 +82,15 @@ int	path_validation(t_mlx *lib)
 	char	**copy_table;
 	int		y;
 	int		x;
+	int		i;
 
 	lib->tab.control = 0;
 	copy_table = malloc(sizeof(char *) * lib->tab.height);
 	y = 0;
 	while (y < lib->tab.height)
 	{
-	copy_table[y] = malloc(sizeof(char) * lib->tab.width);
-	y++;
+		copy_table[y] = malloc(sizeof(char) * lib->tab.width);
+		y++;
 	}
 	y = 0;
 	while (y < lib->tab.height)
@@ -102,5 +103,7 @@ int	path_validation(t_mlx *lib)
 		}
 		y++;
 	}
-	return (valid(lib->player.y / 50, lib->player.x / 50, copy_table, lib));
+	i = valid(lib->player.y / 50, lib->player.x / 50, copy_table, lib);
+	clean_tab(copy_table, lib);
+	return (i);
 }

@@ -12,17 +12,17 @@
 
 #include "so_long.h"
 
-void	clean_tab(t_mlx *lib)
+void	clean_tab(char **my_matrix, t_mlx *lib)
 {
 	int	n;
 
 	n = 0;
 	while (n < lib->tab.height)
 	{
-		free(lib->tab.tab[n]);
+		free(my_matrix[n]);
 		n++;
 	}
-	free(lib->tab.tab);
+	free(my_matrix);
 }
 
 int	close_win(t_mlx *lib)
@@ -35,7 +35,7 @@ int	close_win(t_mlx *lib)
 	mlx_destroy_image(lib->mlx, lib->player.img);
 	mlx_destroy_image(lib->mlx, lib->exit.img);
 	mlx_destroy_image(lib->mlx, lib->co.img);
-	clean_tab(lib);
+	clean_tab(lib->tab.tab, lib);
 	mlx_destroy_display(lib->mlx);
 	free(lib->mlx);
 	ft_printf("steps: %d\n", lib->tab.steps);

@@ -76,7 +76,7 @@ void	map_matrix(char *map, int fd)
 		if (map_validation(&lib) == 1)
 			map_define(&lib);
 		else
-			clean_tab(&lib);
+			clean_tab(lib.tab.tab, &lib);
 	}
 }
 
@@ -114,7 +114,7 @@ int	main(int argc, char **argv)
 	else if (arguments_check(argv[1]) == 0)
 		return (0);
 	my_map = ft_strjoin("./maps/", argv[1]);
-	if(!my_map)
+	if (!my_map)
 		return (0);
 	fd = open(my_map, O_RDONLY);
 	if (fd < 0)

@@ -12,8 +12,9 @@
 
 #include "so_long.h"
 
-void	path_error(void)
+void	path_error(t_mlx *lib)
 {
+	clean_tab(lib->tab.tab, lib);
 	write(1, "Your map does not have a valid path;\n", 37);
 	return ;
 }
@@ -49,7 +50,7 @@ void	map_define(t_mlx *lib)
 
 	player_initial_pos(lib);
 	if (path_validation(lib) == 0)
-		path_error();
+		path_error(lib);
 	else
 	{
 		lib->tab.inventory = 0;

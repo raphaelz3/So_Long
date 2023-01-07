@@ -26,6 +26,7 @@ int	win_width(int fd, int height)
 		comp = ft_strlen(p);
 		if (len != comp)
 		{
+			free(p);
 			return (0);
 		}
 		height--;

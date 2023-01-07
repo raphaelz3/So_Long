@@ -28,6 +28,8 @@ void	clean_tab(char **my_matrix, t_mlx *lib)
 int	close_win(t_mlx *lib)
 {
 	mlx_loop_end(lib->mlx);
+	mlx_key_hook(lib->win, NULL, lib);
+	mlx_hook(lib->win, 17, 1L << 0, NULL, lib);
 	mlx_clear_window(lib->mlx, lib->win);
 	mlx_destroy_window(lib->mlx, lib->win);
 	mlx_destroy_image(lib->mlx, lib->fl.img);
@@ -38,6 +40,6 @@ int	close_win(t_mlx *lib)
 	clean_tab(lib->tab.tab, lib);
 	mlx_destroy_display(lib->mlx);
 	free(lib->mlx);
-	ft_printf("steps: %d\n", lib->tab.steps);
+	ft_printf("Total Steps: %d\n", lib->tab.steps);
 	exit(0);
 }

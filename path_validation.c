@@ -77,6 +77,18 @@ int	valid(int y, int x, char **copy_table, t_mlx *lib)
 		return (1);
 }
 
+void	alocation_table(char **table, t_mlx *lib)
+{
+	int	y;
+
+	y = 0;
+	while (y < lib->tab.height)
+	{
+		table[y] = malloc(sizeof(char) * lib->tab.width);
+		y++;
+	}
+}
+
 int	path_validation(t_mlx *lib)
 {
 	char	**copy_table;
@@ -86,12 +98,7 @@ int	path_validation(t_mlx *lib)
 
 	lib->tab.control = 0;
 	copy_table = malloc(sizeof(char *) * lib->tab.height);
-	y = 0;
-	while (y < lib->tab.height)
-	{
-		copy_table[y] = malloc(sizeof(char) * lib->tab.width);
-		y++;
-	}
+	alocation_table(copy_table, lib);
 	y = 0;
 	while (y < lib->tab.height)
 	{

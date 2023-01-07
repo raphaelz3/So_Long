@@ -57,9 +57,9 @@ void	map_define(t_mlx *lib)
 		lib->mlx = mlx_init();
 		lib->win = mlx_new_window(lib->mlx, lib->tab.width * 50, \
 		lib->tab.height * 50, "so_long");
-		lib->floor.img = mlx_xpm_file_to_image(lib->mlx, "textures/fl.xpm", &x, &y);
-		lib->wall.img = mlx_xpm_file_to_image(lib->mlx, "textures/wa.xpm", &x, &y);
-		lib->colect.img = mlx_xpm_file_to_image(lib->mlx, "textures/co.xpm", &x, &y);
+		lib->fl.img = mlx_xpm_file_to_image(lib->mlx, "textures/f.xpm", &x, &y);
+		lib->wa.img = mlx_xpm_file_to_image(lib->mlx, "textures/w.xpm", &x, &y);
+		lib->co.img = mlx_xpm_file_to_image(lib->mlx, "textures/c.xpm", &x, &y);
 		lib->exit.img = mlx_xpm_file_to_image(lib->mlx, \
 		"textures/chest_closed.xpm", &x, &y);
 		lib->player.img = mlx_xpm_file_to_image(lib->mlx, \

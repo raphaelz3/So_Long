@@ -1,6 +1,6 @@
 NAME = so_long
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g3
 
 MINILIBX = -Imlx -lX11 -lXext
 
@@ -14,12 +14,13 @@ SRCS =	map.c\
 		main.c\
 		get_next_line_utils.c\
 		get_next_line.c\
-		win_size.c\
+		definitions.c\
 		mov.c\
 		map_validation.c\
 		set_image.c\
 		colection.c\
 		path_validation.c\
+		exit.c\
 
 OBJ = $(SRCS:.c=.o)
 

@@ -46,6 +46,8 @@ char	*save_line(char *temp)
 		return (NULL);
 	while (temp[n] != '\n' && temp[n])
 		n++;
+	if (!temp[n])
+		n--;
 	newline = (char *)malloc((n + 2) * sizeof(char));
 	if (!newline)
 		return (NULL);

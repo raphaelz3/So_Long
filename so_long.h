@@ -50,11 +50,11 @@ typedef struct t_mlx
 {
 	void	*mlx;
 	void	*win;
-	t_img	floor;
-	t_img	wall;
+	t_img	fl;
+	t_img	wa;
 	t_img	player;
 	t_img	exit;
-	t_img	colect;
+	t_img	co;
 	t_mtx	tab;
 }t_mlx;
 
@@ -73,5 +73,7 @@ void	colection(t_mlx *lib);
 int		path_validation(t_mlx *lib);
 void	player_initial_pos(t_mlx *lib);
 void	recreat_img(int x, int y, char chr, t_mlx *lib);
+void	init_tab(t_mlx *lib);
+void	clean_tab(t_mlx *lib);
 
 #endif

@@ -17,6 +17,7 @@ void	set_image_mov(int key, t_mlx *lib)
 	int	x;
 	int	y;
 
+	mlx_destroy_image(lib->mlx, lib->player.img);
 	if (key == 'a')
 		lib->player.img = mlx_xpm_file_to_image(lib->mlx, \
 		"textures/stand-left-lt.xpm", &x, &y);

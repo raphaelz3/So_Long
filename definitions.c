@@ -20,6 +20,7 @@ int	win_width(int fd, int height)
 
 	p = get_next_line(fd);
 	len = ft_strlen(p);
+	free(p);
 	while (height - 1 > 1)
 	{
 		p = get_next_line(fd);
@@ -30,8 +31,8 @@ int	win_width(int fd, int height)
 			return (0);
 		}
 		height--;
+		free(p);
 	}
-	free(p);
 	close(fd);
 	return (len - 1);
 }

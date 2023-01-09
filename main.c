@@ -56,31 +56,16 @@ void	map_matrix(char *map, int fd)
 {
 	t_mlx	lib;
 
-	init_tab(&lib);
-	lib.tab.height = win_height(fd);
-	fd = open(map, O_RDONLY);
-	lib.tab.width = win_width(fd, lib.tab.height);
-	fd = open(map, O_RDONLY);
-	if (lib.tab.height <= 2 || lib.tab.width <= 4 || \
-	lib.tab.height == lib.tab.width)
+	init_tab(map, fd, &lib);
+	tab_aloc(&lib);
+	matrix_container(fd, &lib);
+	close(fd);
+	if (map_validation(&lib) == 1)
 	{
-		close(fd);
-		write(1, "map size error\n", 15);
-		return ;
+		map_define(&lib);
 	}
 	else
-	{
-		tab_aloc(&lib);
-		matrix_container(fd, &lib);
-		close(fd);
-		if (map_validation(&lib) == 1)
-		{
-			free(map);
-			map_define(&lib);
-		}
-		else
-			clean_tab(lib.tab.tab, &lib);
-	}
+		clean_tab(lib.tab.tab, &lib);
 }
 
 int	arguments_check(char *args)
@@ -121,10 +106,12 @@ int	main(int argc, char **argv)
 		return (0);
 	fd = open(my_map, O_RDONLY);
 	if (fd < 0)
+	{
+		free(my_map);
 		perror("map not found");
+	}
 	else
 		map_matrix(my_map, fd);
-	free(my_map);
 	close(fd);
 	return (0);
 }

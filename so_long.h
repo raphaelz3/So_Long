@@ -73,7 +73,7 @@ void	colection(t_mlx *lib);
 int		path_validation(t_mlx *lib);
 void	player_initial_pos(t_mlx *lib);
 void	recreat_img(int x, int y, char chr, t_mlx *lib);
-void	init_tab(t_mlx *lib);
+void	init_tab(char *map, int fd, t_mlx *lib);
 void	clean_tab(char **my_matrix, t_mlx *lib);
 
 #endif

@@ -17,23 +17,24 @@ int	win_width(int fd, int height)
 	char	*p;
 	int		len;
 	int		comp;
+	int		controler;
 
+	controler = 1;
 	p = get_next_line(fd);
 	len = ft_strlen(p);
 	free(p);
-	while (height - 1 > 1)
+	while ((height - 1) > 1)
 	{
 		p = get_next_line(fd);
 		comp = ft_strlen(p);
 		if (len != comp)
-		{
-			free(p);
-			return (0);
-		}
-		height--;
+			controler = 0;
 		free(p);
+		height--;
 	}
 	close(fd);
+	if (controler == 0)
+		len = 1;
 	return (len - 1);
 }
 
@@ -55,7 +56,7 @@ int	win_height(int fd)
 	return (height);
 }
 
-void	init_tab(t_mlx *lib)
+void	init_tab(char *map, int fd, t_mlx *lib)
 {
 	lib->tab.player_count = 0;
 	lib->tab.colectable = 0;
@@ -68,4 +69,9 @@ void	init_tab(t_mlx *lib)
 	lib->tab.floor_count = 0;
 	lib->tab.initial_x = 1;
 	lib->tab.initial_y = 1;
+	lib->tab.height = win_height(fd);
+	fd = open(map, O_RDONLY);
+	lib->tab.width = win_width(fd, lib->tab.height);
+	fd = open(map, O_RDONLY);
+	free(map);
 }

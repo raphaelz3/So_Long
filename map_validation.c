@@ -66,7 +66,7 @@ int	map_validation(t_mlx *lib)
 
 	n = 0;
 	if (lib->tab.player_count != 1 || lib->tab.exit_count != 1 || \
-	lib->tab.colectable < 1)
+	lib->tab.colectable < 1 || lib->tab.height == lib->tab.width)
 		return (map_error());
 	while (n != lib->tab.width)
 	{

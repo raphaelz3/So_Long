@@ -18,7 +18,7 @@ char	*read_buf(int fd, char *nl_temp)
 	int		i;
 
 	i = 1;
-	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
 	while (!ft_strchr(nl_temp, '\n') && i != 0)

@@ -74,7 +74,10 @@ void	map_matrix(char *map, int fd)
 		matrix_container(fd, &lib);
 		close(fd);
 		if (map_validation(&lib) == 1)
+		{
+			free(map);
 			map_define(&lib);
+		}
 		else
 			clean_tab(lib.tab.tab, &lib);
 	}

@@ -39,4 +39,4 @@ Exemplo de mapa válido:
  1C0100C0E1
  1111111111
  ```
- Todos os mapas devem seguir esse padrão de construção, e possuir um extensão .ber, além que devem ser salvos na pasta maps.
+ Todos os mapas devem seguir esse padrão de construção, e possuir uma extensão .ber, além que devem ser salvos na pasta maps.
